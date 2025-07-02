@@ -1,0 +1,33 @@
+.question-card {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.5rem;
+  background-color: var(--card);
+  margin-bottom: 2rem;
+}
+
+.question-text {
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.option-button {
+  padding: 0.75rem 1rem;
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-size: 1rem;
+}
+
+.option-button:hover {
+  background-color: #3730a3;
+}
