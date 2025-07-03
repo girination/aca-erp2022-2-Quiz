@@ -17,5 +17,5 @@ export const questions = [
     correctAnswer: "JavaScript XML",
     explanation: "JSX stands for JavaScript XML and lets you write HTML inside JS.",
   },
-  // Add more questions here...
+  
 ];
