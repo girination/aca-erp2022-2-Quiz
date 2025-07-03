@@ -1,33 +1,33 @@
 .question-card {
-  border: 1px solid var(--border);
+  padding: 20px;
+  border: 1px solid #dddddd;
   border-radius: 12px;
-  padding: 1.5rem;
-  background-color: var(--card);
-  margin-bottom: 2rem;
+  margin: 10px auto;
+  max-width: 300px;
+  background-color: #ff0000;
 }
 
 .question-text {
-  font-weight: 600;
-  margin-bottom: 1rem;
+  font-size: 18px;
+  margin-bottom: 15px;
 }
 
 .options {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 10px;
 }
 
 .option-button {
-  padding: 0.75rem 1rem;
-  background-color: var(--primary);
-  color: white;
-  border: none;
+  padding: 12px;
+  font-size: 16px;
+  border: 1px solid #aaa;
   border-radius: 8px;
+  background-color: white;
   cursor: pointer;
-  transition: background-color 0.3s ease;
-  font-size: 1rem;
+  transition: background-color 0.2s;
 }
 
 .option-button:hover {
-  background-color: #3730a3;
+  background-color: #0066ff;
 }

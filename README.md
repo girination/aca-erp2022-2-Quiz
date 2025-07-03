@@ -2,17 +2,16 @@
 
 This is a web-based quiz application built with **React** and **TypeScript** as part of the ACA ERP2022-2 cohort project.
 
-## 🚀 Live Demo
+## Live Demo
 
-👉 [View the deployed app on Vercel](https://aca-erp2022-2-quiz-nine.vercel.app)
+[View the deployed app on Vercel](https://aca-erp2022-2-quiz-nine.vercel.app)
 
-## 📁 GitHub Repository
-
-👉 [GitHub Repo](https://github.com/girination/aca-erp2022-2-Quiz)
+## GitHub Repository
+[GitHub Repo](https://github.com/girination/aca-erp2022-2-Quiz)
 
 ---
 
-## 📦 Getting Started with Create React App
+##  Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -36,7 +35,7 @@ It correctly bundles React in production mode and optimizes the build for best p
 
 ---
 
-## 🧠 Features
+## Features
 
 - 50 questions covering React, TypeScript, Git, and frontend fundamentals
 - Each question includes an explanation for learning
@@ -45,13 +44,13 @@ It correctly bundles React in production mode and optimizes the build for best p
 
 ---
 
-## ✅ Deployment Notes
+##  Deployment Notes
 
 This project is automatically deployed via **Vercel** upon pushing to the `main` branch.
 
 ---
 
-## 📝 License
+## License
 
 This project is open-source and provided for educational use.
 
@@ -59,4 +58,4 @@ This project is open-source and provided for educational use.
 
 _Your quiz might just be used as a benchmark for future cohorts — make it great!_
 
-**Good luck!** 💪
+**Good luck!** 

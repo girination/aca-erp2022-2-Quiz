@@ -1,16 +1,44 @@
+:root {
+  --primary: #000000;
+  --background: #c1f1fd;
+  --card: #065255;
+  --text: #ffffff;
+  --accent: #e0e0f8;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--background);
+  color: var(--text);
+}
+
 .app-container {
-  max-width: 700px;
+  max-width: 500px;
   margin: 0 auto;
   padding: 2rem;
   background-color: var(--card);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
-  border-radius: 16px;
-  margin-top: 4rem;
+  box-shadow: 0 10px 25px rgba(23, 61, 77, 0.05);
+  border-radius: 6px;
+  margin-top: 3rem;
+}
+
+.app-header {
+  text-align: center;
+  margin-bottom: 2rem;
+  padding-top: 1.5rem; 
+}
+
+.logo {
+  margin: 0 auto 1rem auto;
+  width: 190px;
+  height: auto;
+  object-fit: contain;
 }
 
 .title {
   font-size: 2rem;
   text-align: center;
   color: var(--primary);
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 }

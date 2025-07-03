@@ -1,6 +1,4 @@
-import React from "react";
 import "./QuestionsCard.css";
-
 
 type Props = {
   question: {
@@ -16,9 +14,7 @@ type Props = {
 export default function QuestionCard({ question, onAnswer, current, total }: Props) {
   return (
     <div className="question-card">
-      <h2>
-        Question {current} of {total}
-      </h2>
+      <h2>Question {current} of {total}</h2>
       <p className="question-text">{question.question}</p>
       <div className="options">
         {question.options.map((opt) => (

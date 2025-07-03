@@ -1,33 +1,61 @@
-import { useState } from "react";
-import { questions } from "../data/questions";
+import { useEffect, useState } from "react";
+import { fetchQuestions, Question } from "../data/fetchQuestions";
 import Summary from "./Summary";
 
 export default function Quiz() {
+  const [questions, setQuestions] = useState<Question[]>([]);
   const [currentQuestion, setCurrentQuestion] = useState(0);
-  const [selectedOption, setSelectedOption] = useState<string | null>(null);
-  const [answers, setAnswers] = useState<string[]>([]);
+  const [answers, setAnswers] = useState<(string | null)[]>([]);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+
+  useEffect(() => {
+    fetchQuestions().then((data) => {
+      setQuestions(data);
+      setAnswers(Array(data.length).fill(null));
+    });
+  }, []);
 
   const question = questions[currentQuestion];
-  const isCorrect = selectedOption === question.correctAnswer;
+  const selectedOption = answers[currentQuestion];
+  const isLast = currentQuestion === questions.length - 1;
 
   const handleAnswer = (option: string) => {
     if (!selectedOption) {
-      setSelectedOption(option);
+      const updated = [...answers];
+      updated[currentQuestion] = option;
+      setAnswers(updated);
     }
   };
 
   const handleNext = () => {
-    setAnswers([...answers, selectedOption!]);
-    setSelectedOption(null);
-    setCurrentQuestion(currentQuestion + 1);
+    if (currentQuestion < questions.length - 1) {
+      setCurrentQuestion(currentQuestion + 1);
+    }
   };
 
-  const handleRetry = () => {
-    setSelectedOption(null);
+  const handleSkip = () => {
+    const updated = [...answers];
+    updated[currentQuestion] = null;
+    setAnswers(updated);
+    handleNext();
   };
 
-  if (currentQuestion >= questions.length) {
-    return <Summary questions={questions} answers={answers} />;
+  const handleSubmit = () => {
+    setIsSubmitted(true);
+  };
+
+  const handleRestart = () => {
+    setAnswers(Array(questions.length).fill(null));
+    setCurrentQuestion(0);
+    setIsSubmitted(false);
+  };
+
+  if (questions.length === 0) {
+    return <p>Loading questions...</p>;
+  }
+
+  if (isSubmitted) {
+    return <Summary questions={questions} answers={answers} onRestart={handleRestart} />;
   }
 
   return (
@@ -40,12 +68,7 @@ export default function Quiz() {
             key={option}
             onClick={() => handleAnswer(option)}
             style={{
-              backgroundColor:
-                selectedOption === option
-                  ? option === question.correctAnswer
-                    ? "lightgreen"
-                    : "salmon"
-                  : undefined,
+              backgroundColor: selectedOption === option ? "#dceeff" : undefined,
               cursor: selectedOption ? "not-allowed" : "pointer",
               padding: "10px",
               border: "1px solid #ccc",
@@ -58,18 +81,12 @@ export default function Quiz() {
         ))}
       </ul>
 
-      {selectedOption && (
-        <div className="summary-card">
-          <p><strong>Correct answer:</strong> {question.correctAnswer}</p>
-          <p><strong>Your answer:</strong> {selectedOption}</p>
-          <p><strong>Explanation:</strong> {question.explanation}</p>
-          {isCorrect ? (
-            <button onClick={handleNext}>Next</button>
-          ) : (
-            <button onClick={handleRetry}>Try Again</button>
-          )}
-        </div>
-      )}
+      <div style={{ marginTop: "1rem" }}>
+        {!selectedOption && <button onClick={handleSkip}>Skip</button>}
+        {selectedOption && !isLast && <button onClick={handleNext}>Next</button>}
+        {selectedOption && isLast && <button onClick={handleSubmit}>Submit Quiz</button>}
+      </div>
     </div>
   );
 }
+
