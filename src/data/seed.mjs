@@ -36,6 +36,7 @@ async function seedQuestions() {
     if (!existingQuestions.includes(q.question)) {
       await addDoc(colRef, q);
       console.log(` Added: ${q.question}`);
+
     } else {
       console.log(`⚠Skipped (already exists): ${q.question}`);
     }
