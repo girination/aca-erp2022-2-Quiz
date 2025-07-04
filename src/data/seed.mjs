@@ -1,27 +1,34 @@
 // src/data/seed.mjs
-import { initializeApp } from 'firebase/app';
-import { getFirestore, collection, addDoc, getDocs } from 'firebase/firestore';
-import { questions } from './QuestionsData.js'; // Make sure this exports an array of questions
+import { initializeApp } from "firebase/app";
+import { getFirestore, collection, addDoc, getDocs } from "firebase/firestore";
+import { questions } from "./QuestionsData.js";
 
+<<<<<<< HEAD
 //  Firebase config
+=======
+>>>>>>> 2ba7cc5 (Updated to support database capturing of logged in users and record results)
 const firebaseConfig = {
-  apiKey: "AIzaSyBU5vKphT7sukQzryw9BVO02qxKCGPzAxk",
-  authDomain: "aca-quiz-app.firebaseapp.com",
-  projectId: "aca-quiz-app",
-  storageBucket: "aca-quiz-app.appspot.com",
-  messagingSenderId: "826810795259",
-  appId: "1:826810795259:web:f83c695cf379b92bd90d1"
+  apiKey: "AIzaSyBhij5xFuhj7lcNs-OyEH4HKI_2CVS_rSk",
+  authDomain: "aca-quizapp-f4dee.firebaseapp.com",
+  projectId: "aca-quizapp-f4dee",
+  storageBucket: "aca-quizapp-f4dee.appspot.com",
+  messagingSenderId: "996349462838",
+  appId: "1:996349462838:web:02f6656c4fdf41374f4b97"
 };
 
+<<<<<<< HEAD
 //  Init Firestore
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
 //  Seed function with duplicate check
-async function seedQuestions() {
-  const colRef = collection(db, 'questions');
+=======
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
 
-  // Fetch existing questions
+>>>>>>> 2ba7cc5 (Updated to support database capturing of logged in users and record results)
+async function seedQuestions() {
+  const colRef = collection(db, "questions");
   const existingSnapshot = await getDocs(colRef);
   const existingQuestions = existingSnapshot.docs.map(doc => doc.data().question);
 
@@ -37,7 +44,6 @@ async function seedQuestions() {
   console.log(" Seeding complete.");
 }
 
-// 🚀 Run the seeding
 seedQuestions().catch((err) => {
   console.error(" Seeding failed:", err);
 });
